@@ -1,39 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
   <channel>
-    <title>Himpuh Blog Feed</title>
-    <link>https://himpuh.or.id/blog/kategori/2/berita</link>
-    <description>A feed of Himpuh blog posts</description>
+    <title>Kemenhaj RI News Feed</title>
+    <link>https://haji.go.id/berita</link>
+    <description>Berita terkini dari Kementerian Haji dan Umrah RI</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Thu, 07 May 2026 05:58:44 +0000</lastBuildDate>
-    <item>
-      <title>Kartu Nusuk Berisi Data Lengkap, Jemaah Haji Diingatkan Jangan Sebar Foto ke Medsos</title>
-      <link>https://himpuh.or.id/blog/detail/4282/kartu-nusuk-berisi-data-lengkap-jemaah-haji-diingatkan-jangan-sebar-foto-ke-medsos</link>
-      <description>Petugas Penyelenggara Ibadah Haji (PPIH) mengingatkan jemaah haji Indonesia untuk tidak sembarangan mengunggah Kartu Nusuk ke media sosial. Dokumen tersebut dinilai sangat vital karena memuat identitas lengkap hingga akses layanan selama di Tanah Suci.</description>
-      <enclosure url="https://a7f43fdc1eb33fc73.nos.wjv-1.neo.id/1778124671_IGZp0F1CslgOsb8CcSh8oLglgGItGIGWGfxzaPBY.webp" length="0" type="image/webp"/>
-      <pubDate>Thu, 07 May 2026 09:00:57 +0700</pubDate>
-    </item>
-    <item>
-      <title>Jemaah Haji Dibatasi Umrah Sunnah Maksimal 3 Kali Jelang Armuzna</title>
-      <link>https://himpuh.or.id/blog/detail/4283/jemaah-haji-dibatasi-umrah-sunnah-maksimal-3-kali-jelang-armuzna</link>
-      <description>Petugas Penyelenggara Ibadah Haji (PPIH) Arab Saudi mulai memperketat pengaturan aktivitas jemaah menjelang puncak ibadah haji di Arafah, Muzdalifah, dan Mina (Armuzna). Salah satu kebijakan yang diterapkan adalah pembatasan umrah sunnah maksimal tiga kali sebelum fase Armuzna dimulai.</description>
-      <enclosure url="https://a7f43fdc1eb33fc73.nos.wjv-1.neo.id/1778124878_0CO5FfnscQI9YUEjVBd5mPyFSqejj4fYKX0YSUnT.webp" length="0" type="image/webp"/>
-      <pubDate>Thu, 07 May 2026 09:31:30 +0700</pubDate>
-    </item>
-    <item>
-      <title>Kemenhaj Minta Jemaah Aktif Gunakan Aplikasi Kawal Haji untuk Laporkan Keluhan</title>
-      <link>https://himpuh.or.id/blog/detail/4284/kemenhaj-minta-jemaah-aktif-gunakan-aplikasi-kawal-haji-untuk-laporkan-keluhan</link>
-      <description>Kementerian Haji dan Umrah (Kemenhaj) mengimbau jamaah calon haji Indonesia memanfaatkan aplikasi Kawal Hajiselama berada di Tanah Suci. Aplikasi tersebut disiapkan sebagai kanal pengaduan cepat untuk berbagai persoalan layanan haji di Madinah maupun Makkah.</description>
-      <enclosure url="https://a7f43fdc1eb33fc73.nos.wjv-1.neo.id/1778125105_rFkGm7SYSZnMkRA8YOwNk8oSAygnrZzQVqPB929w.webp" length="0" type="image/webp"/>
-      <pubDate>Thu, 07 May 2026 10:35:04 +0700</pubDate>
-    </item>
-    <item>
-      <title>Lagi-lagi, Polisi Saudi Tangkap 10 Orang yang Nekat Masuk Makkah Tanpa Izin Haji</title>
-      <link>https://himpuh.or.id/blog/detail/4285/lagi-lagi-polisi-saudi-tangkap-10-orang-yang-nekat-masuk-makkah-tanpa-izin-haji</link>
-      <description>Aparat keamanan Arab Saudi kembali menangkap 10 penduduk asing yang diduga melanggar aturan haji karena mencoba masuk dan tinggal di Makkah tanpa izin resmi haji. Penindakan dilakukan di tengah pengawasan ketat otoritas Saudi menjelang puncak musim haji 2026.</description>
-      <enclosure url="https://a7f43fdc1eb33fc73.nos.wjv-1.neo.id/1778125382_JedSxaDUv2t8qGqxI2I9gKsnsFY86S3Y2Ecm1gzl.webp" length="0" type="image/webp"/>
-      <pubDate>Thu, 07 May 2026 11:00:48 +0700</pubDate>
-    </item>
+    <lastBuildDate>Thu, 07 May 2026 06:34:22 +0000</lastBuildDate>
   </channel>
 </rss>
