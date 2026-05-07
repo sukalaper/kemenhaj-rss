@@ -47,14 +47,20 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           
-          # Stage file output.xml
-          git add output.xml
+          # 1. Simpan perubahan output.xml ke 'lemari' sementara (stash)
+          git stash
           
-          # Cek perubahan, commit, tarik update terbaru via rebase, baru push
+          # 2. Tarik update terbaru dari main biar sinkron
+          git pull --rebase origin main
+          
+          # 3. Ambil lagi perubahan output.xml tadi
+          git stash pop || echo "Gak ada yang perlu dipop"
+          
+          # 4. Baru deh add, commit, dan push
+          git add output.xml
           if ! git diff --staged --quiet; then
             git commit -m "Update RSS feed [skip ci]"
-            git pull --rebase origin main
             git push origin main
           else
-            echo "No changes in output.xml, skipping push."
+            echo "No changes to commit"
           fi
