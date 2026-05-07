@@ -54,18 +54,21 @@ if data_berita:
     fg.title("Kemenhaj RI News Feed")
     fg.link(href="https://haji.go.id/berita", rel='alternate')
     fg.description("Berita terkini dari Kementerian Haji dan Umrah RI")
+    fg.language('id')
 
     for item in data_berita:
         entry = fg.add_entry()
         entry.title(item['title'])
         entry.link(href=item['link'])
         entry.description(item['excerpt'])
+        
         if item['image']:
             entry.enclosure(url=item['image'], length=0, type='image/jpeg')
-        entry.pubDate(datetime.now().astimezone())
+        
+        now = datetime.now(timezone.utc)
+        entry.pubDate(now)
 
     with open('output.xml', 'wb') as f:
         f.write(fg.rss_str(pretty=True))
-    print(f"Mantap! {len(data_berita)} berita berhasil masuk ke output.xml")
-else:
-    print("Gagal dapetin data.")
+    
+    print(f"Selesai! {len(data_berita)} berita berhasil masuk.")
