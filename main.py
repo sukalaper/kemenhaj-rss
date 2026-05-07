@@ -1,82 +1,61 @@
 import requests
+import json
 from bs4 import BeautifulSoup
 from feedgen.feed import FeedGenerator
 from datetime import datetime
-import re
 
 url = "https://haji.go.id/berita"
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
 }
 
-try:
-    response = requests.get(url, headers=headers, timeout=20)
-    response.raise_for_status()
-    soup = BeautifulSoup(response.text, 'html.parser')
-except Exception as e:
-    print(f"Error access: {e}")
-    exit()
+response = requests.get(url, headers=headers, timeout=20)
+soup = BeautifulSoup(response.text, 'html.parser')
 
-# Cari semua div yang punya class 'news-card'
-news_cards = soup.find_all('div', class_='news-card')
 articles = []
 
-# Map bulan Indonesia
-month_map = {
-    'januari': 'January', 'februari': 'February', 'maret': 'March',
-    'april': 'April', 'mei': 'May', 'juni': 'June',
-    'juli': 'July', 'agustus': 'August', 'september': 'September',
-    'oktober': 'October', 'november': 'November', 'desember': 'December'
-}
+# Trik: Cari data di dalam script __NEXT_DATA__ (Standar Next.js/React)
+next_data = soup.find('script', id='__NEXT_DATA__')
 
-for card in news_cards:
+if next_data:
+    # Kalau webnya Next.js, semua berita ada di sini dalam bentuk JSON
+    data_json = json.loads(next_data.string)
+    # Jalur data biasanya: props -> pageProps -> initialData -> berita
+    # Kita cari secara rekursif atau lgsg ke intinya
     try:
-        # Cari Judul (selector lebih fleksibel)
-        title_tag = card.find(['h3', 'div'], class_='news-card-title')
-        title = title_tag.get_text(strip=True) if title_tag else "No Title"
+        # Ini path umum, bisa beda dikit tapi biasanya ada di pageProps
+        raw_news = data_json['props']['pageProps'].get('news', []) or \
+                   data_json['props']['pageProps'].get('data', [])
+        
+        for item in raw_news[:10]:
+            articles.append({
+                'title': item.get('title'),
+                'link': f"https://haji.go.id/berita/{item.get('slug')}",
+                'desc': item.get('excerpt'),
+                'date': item.get('created_at'),
+                'img': item.get('image')
+            })
+    except:
+        pass
 
-        # Cari Link
-        link_tag = card.find('a', href=True)
-        link = link_tag['href'] if link_tag else ""
-        if link.startswith('/'):
-            link = 'https://haji.go.id' + link
-
-        # Cari Excerpt
-        desc_tag = card.find('p', class_='news-card-excerpt')
-        desc = desc_tag.get_text(strip=True) if desc_tag else ""
-
-        # Cari Gambar
-        img_tag = card.find('img')
-        img_url = img_tag.get('src') if img_tag else None
-
-        # Cari Tanggal
-        date_tag = card.find('span', class_='news-card-date')
-        pub_date = None
-        if date_tag:
-            d_text = date_tag.get_text(strip=True).lower()
-            match = re.search(r'(\d{1,2})\s+(\w+)\s+(\d{4})', d_text)
-            if match:
-                day, mon_id, year = match.groups()
-                mon_en = month_map.get(mon_id, mon_id)
-                pub_date = datetime.strptime(f"{day} {mon_en} {year}", "%d %B %Y")
-
-        articles.append({
-            'title': title,
-            'link': link,
-            'desc': desc,
-            'img': img_url,
-            'date': pub_date
-        })
-    except Exception as e:
-        print(f"Skip satu item karena error: {e}")
-
+# Kalau trik script gagal, kita balik ke BeautifulSoup biasa (cara lo)
 if not articles:
-    print("Waduh, masih kosong! Cek lagi class 'news-card' di website aslinya.")
-    # Debug: Print sedikit isi HTML biar kita tau isinya apa
-    print(soup.prettify()[:500])
-    exit()
+    news_cards = soup.find_all('div', class_='news-card')
+    for card in news_cards:
+        title_tag = card.find('h3', class_='news-card-title')
+        link_tag = card.find('a', href=True)
+        date_tag = card.find('span', class_='news-card-date')
+        
+        if title_tag:
+            articles.append({
+                'title': title_tag.get_text(strip=True),
+                'link': 'https://haji.go.id' + link_tag['href'] if link_tag['href'].startswith('/') else link_tag['href'],
+                'desc': card.find('p', class_='news-card-excerpt').get_text(strip=True) if card.find('p', class_='news-card-excerpt') else "",
+                'date': date_tag.get_text(strip=True) if date_tag else None,
+                'img': card.find('img')['src'] if card.find('img') else None
+            })
 
-# Generate RSS
+# Bikin RSS
 fg = FeedGenerator()
 fg.title("Kemenhaj RI News Feed")
 fg.link(href=url, rel='alternate')
@@ -87,13 +66,10 @@ for a in articles:
     fe.title(a['title'])
     fe.link(href=a['link'])
     fe.description(a['desc'])
-    if a['date']:
-        # RSS butuh timezone, kita kasih UTC+7
-        fe.pubDate(a['date'].replace(tzinfo=datetime.now().astimezone().tzinfo))
-    if a['img']:
-        fe.enclosure(url=a['img'], length=0, type='image/jpeg')
+    # Set tanggal seadanya kalau formatnya susah di-parse
+    fe.pubDate(datetime.now(timezone.utc)) 
 
 with open('output.xml', 'wb') as f:
     f.write(fg.rss_str(pretty=True))
 
-print(f"Berhasil! {len(articles)} berita masuk ke output.xml")
+print(f"Update selesai! {len(articles)} berita masuk.")
