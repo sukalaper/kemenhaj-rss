@@ -6,27 +6,22 @@ import time
 
 def scrape_kemenhaj():
     with sync_playwright() as p:
-        # Launch browser gaib (headless)
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
         
         url = "https://haji.go.id/berita"
         print(f"Membuka {url}...")
         
-        # Buka halaman dan tunggu sampe koneksi anteng
         page.goto(url, wait_until="networkidle")
         
-        # Trik maut: nungguin news-card muncul di HTML (max 20 detik)
         try:
             page.wait_for_selector(".news-card", timeout=20000)
-            # Kasih nafas sedetik biar rendering selesai sempurna
             time.sleep(2)
         except Exception as e:
             print("Waduh, beritanya gak muncul-muncul lewat browser sekalipun.")
             browser.close()
             return []
 
-        # Ambil HTML yang udah "mateng" (udah ke-render JS-nya)
         html_content = page.content()
         soup = BeautifulSoup(html_content, 'html.parser')
         browser.close()
@@ -52,7 +47,6 @@ def scrape_kemenhaj():
                 })
         return articles
 
-# Eksekusi Scraper
 data_berita = scrape_kemenhaj()
 
 if data_berita:
@@ -68,7 +62,6 @@ if data_berita:
         entry.description(item['excerpt'])
         if item['image']:
             entry.enclosure(url=item['image'], length=0, type='image/jpeg')
-        # RSS butuh timezone, kita pake UTC+7
         entry.pubDate(datetime.now().astimezone())
 
     with open('output.xml', 'wb') as f:
