@@ -6,13 +6,18 @@ import re
 
 # URL Target Kemenhaj
 url = "https://haji.go.id/berita"
-# Gue asumsikan response.text dapet dari requests seperti biasa
-# response = requests.get(url)
-# soup = BeautifulSoup(response.text, 'html.parser')
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
+}
 
-# Untuk simulasi dari HTML yang lo kasih:
-html_content = """[MASUKKAN_HTML_LO_DISINI]""" 
-soup = BeautifulSoup(html_content, 'html.parser')
+try:
+    # Narik data asli dari web
+    response = requests.get(url, headers=headers, timeout=20)
+    response.raise_for_status()
+    soup = BeautifulSoup(response.text, 'html.parser')
+except Exception as e:
+    print(f"Gagal narik data: {e}")
+    exit()
 
 # Cari semua container berita
 news_cards = soup.find_all('div', class_='news-card')
@@ -48,7 +53,6 @@ for card in news_cards:
     published_date = None
     if date_elem:
         date_text = date_elem.text.strip().lower()
-        # Regex buat ambil Hari Bulan Tahun
         match = re.search(r'(\d{1,2})\s+(\w+)\s+(\d{4})', date_text)
         if match:
             day, month_id, year = match.groups()
@@ -56,7 +60,6 @@ for card in news_cards:
             try:
                 date_str = f"{day} {month_en} {year}"
                 published_date = datetime.strptime(date_str, "%d %B %Y")
-                # Set timezone Jakarta UTC+7
                 jakarta_tz = timezone(timedelta(hours=7))
                 published_date = published_date.replace(tzinfo=jakarta_tz)
             except ValueError:
@@ -90,8 +93,8 @@ for article in articles:
     if article['image']:
         entry.enclosure(url=article['image'], length=0, type='image/jpeg')
 
-# Save output
-with open('kemenhaj_news.xml', 'wb') as f:
+# SIMPAN KE output.xml (Biar sesuai sama struktur folder lo)
+with open('output.xml', 'wb') as f:
     f.write(feed.rss_str(pretty=True))
 
-print("RSS Berhasil dibuat!")
+print("RSS Berhasil diperbarui ke output.xml!")
