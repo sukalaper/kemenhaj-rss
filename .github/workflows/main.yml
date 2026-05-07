@@ -4,21 +4,19 @@ on:
   push:
     branches: ["main"]
   schedule:
-    # Run every 30 minutes
     - cron: "*/30 * * * *"
-  workflow_dispatch: # Allow manual triggering
+  workflow_dispatch: 
 
 jobs:
   update-rss:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Izin mutlak buat push perubahan
+      contents: write 
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          # fetch-depth: 0 penting biar rebase nggak bingung
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -36,7 +34,6 @@ jobs:
         run: uv sync
 
       - name: Install Playwright Chromium
-        # Ini solusi buat error 'Executable doesn't exist' lo tadi
         run: uv run playwright install chromium --with-deps
 
       - name: Run RSS feed generator
