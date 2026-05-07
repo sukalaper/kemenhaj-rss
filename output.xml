@@ -3,9 +3,9 @@
   <channel>
     <title>Kemenhaj RI News Feed</title>
     <link>https://haji.go.id/berita</link>
-    <description>Berita terkini dari Kementerian Haji dan Umrah RI</description>
+    <description>Berita terkini Kementerian Haji dan Umrah RI</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Thu, 07 May 2026 06:46:43 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 07 May 2026 06:57:29 +0000</lastBuildDate>
   </channel>
 </rss>
