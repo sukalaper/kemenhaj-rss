@@ -1,7 +1,7 @@
 from playwright.sync_api import sync_playwright
 from bs4 import BeautifulSoup
 from feedgen.feed import FeedGenerator
-from datetime import datetime
+from datetime import datetime, timezone
 import time
 
 def scrape_kemenhaj():
