@@ -1,76 +1,73 @@
-import requests
-import json
-import re
+import asyncio
+from playwright.sync_api import sync_playwright
+from bs4 import BeautifulSoup
 from feedgen.feed import FeedGenerator
 from datetime import datetime
+import re
 
-url = "https://haji.go.id/berita"
-headers = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
-}
-
-try:
-    response = requests.get(url, headers=headers, timeout=20)
-    response.raise_for_status()
-    html = response.text
-
-    # Cari data di dalam tag <script id="__NEXT_DATA__">...</script>
-    # Ini adalah "bekal" data JSON yang bakal di-render sama React
-    match = re.search(r'<script id="__NEXT_DATA__" type="application/json">(.*?)</script>', html)
-    
-    articles = []
-    if match:
-        json_data = json.loads(match.group(1))
-        # Path data di Next.js biasanya: props -> pageProps -> initialData -> data
-        # Gue bikin safe navigation biar gak gampang error
-        try:
-            # Kita coba cari list berita di dalam JSON state-nya
-            # Sesuaikan dengan struktur actual (biasanya ada di pageProps)
-            raw_items = json_data.get('props', {}).get('pageProps', {}).get('initialData', {}).get('data', [])
-            if not raw_items:
-                # Fallback path kalau strukturnya beda
-                raw_items = json_data.get('props', {}).get('pageProps', {}).get('data', [])
-            
-            for item in raw_items[:10]:
-                articles.append({
-                    'title': item.get('title'),
-                    'excerpt': item.get('excerpt', ''),
-                    'slug': item.get('slug'),
-                    'image': item.get('image'),
-                    'date': item.get('created_at')
-                })
-        except Exception as e:
-            print(f"Gagal parsing JSON state: {e}")
-
-    # Kalau JSON state gagal, kita gak punya pilihan selain pasrah atau pake Selenium.
-    # Tapi biasanya cara __NEXT_DATA__ ini 99% ampuh buat Next.js.
-
-    feed = FeedGenerator()
-    feed.title("Kemenhaj RI News Feed")
-    feed.link(href=url, rel='alternate')
-    feed.description("Berita terkini dari Kementerian Haji dan Umrah RI")
-
-    for art in articles:
-        entry = feed.add_entry()
-        entry.title(art['title'] or "No Title")
-        entry.description(art['excerpt'] or "")
-        entry.link(href=f"https://haji.go.id/berita/{art['slug']}")
+def scrape():
+    with sync_playwright() as p:
+        # Buka browser
+        browser = p.chromium.launch(headless=True)
+        page = browser.new_page()
         
-        if art['image']:
-            img_url = art['image'] if art['image'].startswith('http') else f"https://haji.go.id{art['image']}"
-            entry.enclosure(url=img_url, length=0, type='image/jpeg')
+        # Buka URL
+        print("Membuka haji.go.id/berita...")
+        page.goto("https://haji.go.id/berita", wait_until="networkidle")
+        
+        # TUNGGUIN sampe news-card muncul (kunci utamanya di sini)
+        try:
+            page.wait_for_selector(".news-card", timeout=15000)
+        except:
+            print("Timeout: Berita gak muncul-muncul.")
+            browser.close()
+            return []
+
+        # Ambil HTML yang udah ke-render
+        content = page.content()
+        soup = BeautifulSoup(content, 'html.parser')
+        browser.close()
+        
+        # Parsing pake BeautifulSoup kayak biasa
+        articles = []
+        news_cards = soup.find_all('div', class_='news-card')
+        
+        for card in news_cards:
+            title_el = card.find('h3', class_='news-card-title')
+            link_el = card.find('a', class_='news-card-title-link')
+            excerpt_el = card.find('p', class_='news-card-excerpt')
+            img_el = card.find('img')
             
-        if art['date']:
-            try:
-                dt = datetime.fromisoformat(art['date'].replace('Z', '+00:00'))
-                entry.pubDate(dt)
-            except:
-                pass
+            if title_el and link_el:
+                link = link_el['href']
+                articles.append({
+                    'title': title_el.get_text(strip=True),
+                    'link': f"https://haji.go.id{link}" if link.startswith('/') else link,
+                    'desc': excerpt_el.get_text(strip=True) if excerpt_el else "",
+                    'img': img_el['src'] if img_el else None
+                })
+        return articles
+
+# Jalanin Scraper
+articles = scrape()
+
+if articles:
+    fg = FeedGenerator()
+    fg.title("Kemenhaj RI News Feed")
+    fg.link(href="https://haji.go.id/berita", rel='alternate')
+    fg.description("Berita terkini Kementerian Haji dan Umrah RI")
+
+    for a in articles:
+        fe = fg.add_entry()
+        fe.title(a['title'])
+        fe.link(href=a['link'])
+        fe.description(a['desc'])
+        if a['img']:
+            fe.enclosure(url=a['img'], length=0, type='image/jpeg')
+        fe.pubDate(datetime.now().astimezone())
 
     with open('output.xml', 'wb') as f:
-        f.write(feed.rss_str(pretty=True))
-
-    print(f"Selesai! Dapet {len(articles)} berita.")
-
-except Exception as e:
-    print(f"Error fatal: {e}")
+        f.write(fg.rss_str(pretty=True))
+    print(f"Update Selesai! {len(articles)} berita masuk.")
+else:
+    print("Gagal dapetin berita.")
