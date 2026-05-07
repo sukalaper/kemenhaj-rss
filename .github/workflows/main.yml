@@ -8,16 +8,18 @@ on:
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    permissions:         # <--- Tambahin ini
-      contents: write    # <--- Tambahin ini
+    permissions:
+      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Install uv
         uses: astral-sh/setup-uv@v3
         with:
-          enable-cache: true # Biar install berikutnya lebih cepet
+          enable-cache: true
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -25,20 +27,23 @@ jobs:
           python-version-file: ".python-version"
 
       - name: Install dependencies
-        run: uv sync # Ini bakal install semua yang ada di pyproject.toml / uv.lock
+        run: uv sync
+
+      - name: Install Playwright Browsers
+        # Ini WAJIB biar browsernya ada di komputer GitHub
+        run: uv run playwright install chromium --with-deps
 
       - name: Run scraper
-        run: uv run main.py # Menjalankan script pake environment uv
+        run: uv run main.py
 
       - name: Commit and push changes
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           git add output.xml
-          # Cek dulu ada perubahan gak, kalo ada baru jalanin proses sinkronisasi
           if ! git diff --quiet --staged; then
             git commit -m "Auto-update RSS feed: $(date)"
-            git pull --rebase origin main  # <--- KUNCINYA DI SINI
+            git pull --rebase origin main
             git push origin main
           else
             echo "Gak ada perubahan di output.xml, skip push."
