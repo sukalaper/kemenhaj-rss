@@ -3,51 +3,183 @@
   <channel>
     <title>Kemenhaj RI News Feed</title>
     <link>https://raw.githubusercontent.com/sukalaper/himpuh-rss/main/output.xml</link>
-    <description>Berita utuh tanpa kepotong dari Kementerian Haji dan Umrah RI</description>
+    <description>Berita utuh Kementerian Haji dan Umrah RI (Tanpa Kepotong)</description>
     <atom:link href="https://raw.githubusercontent.com/sukalaper/himpuh-rss/main/output.xml" rel="self"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>id</language>
-    <lastBuildDate>Tue, 12 May 2026 13:27:38 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 12 May 2026 13:34:03 +0000</lastBuildDate>
     <item>
       <title>Kemenhaj Imbau Jemaah Hemat Tenaga Jelang Puncak Haji</title>
       <link>https://haji.go.id/berita/kemenhaj-imbau-jemaah-hemat-tenaga-jelang-puncak-haji-1778492187828</link>
-      <description>Isi detail tidak ditemukan di halaman.</description>
+      <description>Jakarta (Kemenhaj) — Kementerian Haji dan Umrah Republik Indonesia mengimbau seluruh jemaah haji Indonesia untuk mulai menghemat tenaga dan fokus mempersiapkan diri menuju fase puncak ibadah haji 1447 H/2026 M.
+
+Juru Bicara Kemenhaj, Maria Assegaff, mengatakan puncak haji membutuhkan kesiapan fisik, mental, dan spiritual. Jemaah diminta tidak memaksakan diri beraktivitas di luar hotel, terutama pada siang hari, mengingat suhu di Makkah dan Madinah berkisar 38 hingga 42 derajat Celsius.
+
+“Jemaah perlu mengutamakan kesehatan. Hemat tenaga, cukup istirahat, makan tepat waktu, minum air putih yang cukup, dan selalu ikuti arahan petugas,” ujar Maria di Jakarta, Senin (11/5/2026).
+
+Maria menjelaskan, hingga hari ke-21 operasional haji, sebanyak 341 kloter dengan 132.057 jemaah dan 1.361 petugas telah diberangkatkan ke Arab Saudi. Sementara itu, 240 kloter dengan 92.767 jemaah dan 960 petugas telah tiba di Makkah dari Madinah. Untuk kedatangan gelombang kedua melalui Jeddah, telah tiba 67 kloter dengan 25.541 jemaah dan 269 petugas. Adapun jemaah haji khusus yang telah tiba di Arab Saudi berjumlah 5.766 orang.
+
+Kemenhaj juga mengingatkan jemaah lansia, disabilitas, dan jemaah risiko tinggi agar segera melapor kepada petugas jika mengalami keluhan kesehatan seperti pusing, sesak napas, nyeri dada, demam, batuk berat, atau kondisi tubuh menurun.
+
+“Jangan menunggu kondisi memburuk. Kesehatan adalah bekal utama menuju puncak haji,” tegas Maria.
+
+Maria turut menekankan pentingnya peran KBIHU dalam mendampingi jemaah. KBIHU diharapkan ikut memperkuat edukasi kesehatan, keselamatan, ketertiban, dan kedisiplinan jemaah, selain memberikan bimbingan manasik.
+
+Kemenhaj juga telah mengeluarkan edaran pengaturan pergerakan jemaah sebagai langkah mitigasi menjelang fase puncak haji. Jemaah diminta mematuhi arahan petugas, baik dalam aktivitas dari hotel ke Masjidil Haram, pergerakan Madinah menuju Makkah, maupun persiapan menuju Armuzna.
+
+Khusus jemaah gelombang kedua yang tiba melalui Jeddah, Maria mengimbau agar mengenakan kain ihram sejak di embarkasi karena akan mengambil miqat dalam perjalanan menuju Arab Saudi dan langsung menuju Makkah untuk melaksanakan umrah wajib.
+
+Terkait layanan kesehatan, hingga saat ini 67 jemaah masih menjalani perawatan di Rumah Sakit Arab Saudi. Kemenhaj juga mencatat satu jemaah wafat pada Ahad, 10 Mei 2026, atas nama Kasiani Sigito Tarmidi dari KNO 8 asal Kota Medan, Sumatera Utara. Dengan demikian, total jemaah wafat di Arab Saudi hingga saat ini sebanyak 24 orang.
+
+“Atas nama Kemenhaj, kami menyampaikan duka cita yang mendalam. Semoga almarhumah mendapat tempat terbaik di sisi Allah SWT dan keluarga yang ditinggalkan diberikan ketabahan,” ujar Maria.
+
+Maria mengapresiasi seluruh petugas haji Indonesia yang terus bekerja memberikan layanan terbaik kepada jemaah. Ia juga mengajak jemaah menjaga kesehatan, hemat tenaga, mematuhi ketentuan pergerakan, dan memperkuat kesiapan ibadah.
+
+“Semoga Allah SWT memberikan kemudahan, perlindungan, dan kesehatan kepada seluruh jemaah haji Indonesia, serta menjadikan hajinya mabrur,” tutup Maria.</description>
       <guid isPermaLink="true">https://haji.go.id/berita/kemenhaj-imbau-jemaah-hemat-tenaga-jelang-puncak-haji-1778492187828</guid>
       <enclosure url="https://haji.go.id/uploads/general/cd051db9-8f8a-483c-83be-00e723a125a0-1778492187820.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Tue, 12 May 2026 13:27:38 +0000</pubDate>
+      <pubDate>Tue, 12 May 2026 13:34:03 +0000</pubDate>
     </item>
     <item>
       <title>Pagu Indikatif 2027 Jadi Momentum Transformasi Layanan Haji yang Efisien, Adaptif, dan Berorientasi pada Jemaah</title>
       <link>https://haji.go.id/berita/pagu-indikatif-2027-jadi-momentum-transformasi-layanan-haji-yang-efisien-adaptif-dan-berorientasi-pada-jemaah-1778495572772</link>
-      <description>Isi detail tidak ditemukan di halaman.</description>
+      <description>Jakarta (Kemenhaj)— Sekretaris Jenderal Kementerian Haji dan Umrah Republik Indonesia, Teguh Dwi Nugroho, menegaskan bahwa penyusunan pagu indikatif Tahun Anggaran 2027 diarahkan sebagai momentum transformasi kelembagaan untuk memperkuat layanan haji dan umrah yang lebih efisien, inovatif, adaptif terhadap dinamika global, serta tetap berfokus pada kepentingan jemaah.
+
+Hal tersebut disampaikan dalam rapat koordinasi bersama jajaran Kantor Wilayah Kemenhaj se-Indonesia yang digelar secara hybrid, di Jakarta, Senin (11/5). Dalam arahannya, Sekjen menyoroti tekanan ekonomi global, gejolak geopolitik internasional, hingga keterbatasan fiskal nasional yang secara langsung memengaruhi penyelenggaraan ibadah haji Indonesia.
+
+“Pertumbuhan ekonomi global masih melambat dan tidak merata. Sejumlah negara mulai melakukan proteksi ekonomi untuk menjaga fiskal mereka. Kondisi ini menciptakan dinamika global yang berdampak langsung terhadap pembiayaan layanan haji,” ujar Teguh.
+
+Ia menjelaskan bahwa penyelenggaraan ibadah haji memiliki tantangan yang sangat kompleks karena dilaksanakan di Arab Saudi dengan sistem pembayaran berbasis mata uang asing yang sebelumnya harus dikonversi ke dolar Amerika Serikat. Di sisi lain, pemerintah tetap berkomitmen menjaga keterjangkauan biaya haji bagi masyarakat.
+
+“Kita menghadapi tantangan besar karena ada arahan Presiden agar ongkos haji tidak naik. Karena itu satu-satunya jalan adalah membangun sistem kerja yang semakin efisien tanpa mengurangi kualitas pelayanan jemaah,” tegasnya.
+
+Menurut Teguh, dampak geopolitik global telah memicu kenaikan signifikan berbagai komponen biaya penyelenggaraan ibadah haji. Harga avtur mengalami lonjakan tajam hingga mendekati 100 persen, biaya logistik internasional meningkat, sementara fluktuasi nilai tukar rupiah turut memberikan tekanan terhadap pembiayaan layanan.
+
+“Fluktuasi global hari ini sangat memengaruhi stabilitas biaya haji. Avtur naik sangat tinggi, logistik meningkat, nilai tukar terus bergerak, sementara ruang fiskal nasional semakin terbatas. Kondisi ini diperkirakan masih akan berlanjut hingga tahun 2027,” katanya.
+
+Ia menambahkan bahwa banyak negara akhirnya menaikkan pajak untuk menjaga ketahanan fiskal mereka, yang berdampak pada meningkatnya biaya barang dan jasa serta menurunnya daya saing ekonomi global. Karena itu, seluruh kementerian dan lembaga diminta mampu beradaptasi dengan perubahan geopolitik melalui tata kelola anggaran yang lebih efisien, tepat sasaran, dan berbasis hasil.
+
+“Dalam situasi seperti sekarang tidak ada ruang untuk bekerja secara business as usual. Seluruh jajaran harus menghadirkan inovasi, memperkuat digitalisasi, dan menghasilkan kinerja maksimal dengan biaya yang seefisien mungkin,” ujar Teguh.
+
+Dalam pemaparannya, Sekjen menyampaikan bahwa pagu anggaran Kemenhaj Tahun 2026 sebesar Rp2,679 triliun, sedangkan pagu indikatif Tahun 2027 berada pada angka Rp1,945 triliun. Menurutnya, keterbatasan anggaran harus dipandang sebagai momentum untuk memperbaiki kualitas belanja negara agar semakin produktif dan berdampak langsung kepada jemaah.
+
+“Keterbatasan pagu bukan hambatan untuk bekerja. Justru ini menjadi momentum memperbaiki kualitas belanja agar lebih efektif, tepat guna, dan benar-benar memberikan manfaat langsung kepada jemaah,” tegasnya.
+
+Teguh juga mengingatkan bahwa seluruh program Kemenhaj harus memiliki keterhubungan yang jelas dengan agenda prioritas Presiden serta arah pembangunan nasional menuju Indonesia Emas 2045.
+
+“Setiap program harus memiliki benang merah dengan prioritas Presiden. Kita tidak hanya berbicara tentang administrasi anggaran, tetapi tentang bagaimana anggaran negara mampu menghadirkan pelayanan terbaik bagi masyarakat,” katanya.
+
+Dalam arahannya, Sekjen menegaskan empat pesan utama dalam penyusunan pagu indikatif Tahun 2027, yaitu fokus pada layanan inti, meninggalkan pola kerja business as usual, memperkuat inovasi dan digitalisasi, serta memastikan belanja berbasis output dan outcome.
+
+Ia juga menyinggung asumsi makro ekonomi nasional tahun 2027 yang menargetkan pertumbuhan ekonomi pada kisaran 5,9 hingga 7,5 persen sebagai bagian dari fondasi menuju visi Indonesia Emas 2045.
+
+“Tanpa pertumbuhan ekonomi yang tinggi dan stabil, cita-cita Indonesia Emas akan sulit diwujudkan. Karena itu seluruh kementerian dan lembaga harus mampu menjaga efektivitas belanja negara di tengah tekanan global,” ujarnya.
+
+Selain itu, asumsi nilai tukar rupiah di kisaran Rp16.800 per dolar AS, inflasi sekitar 2,5 persen, serta harga minyak dunia yang masih fluktuatif menjadi faktor penting dalam penyusunan kebijakan anggaran nasional tahun 2027.
+
+“Kemenhaj memiliki mandat yang sangat spesifik, yaitu memastikan pelayanan haji dan umrah berjalan optimal. Karena itu seluruh kebijakan, program, dan penggunaan anggaran harus berorientasi pada kualitas pelayanan jemaah,” pungkasnya.</description>
       <guid isPermaLink="true">https://haji.go.id/berita/pagu-indikatif-2027-jadi-momentum-transformasi-layanan-haji-yang-efisien-adaptif-dan-berorientasi-pada-jemaah-1778495572772</guid>
       <enclosure url="https://haji.go.id/uploads/general/a036c867-ca99-4bba-80fe-b076f53b80ce-1778495572761.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Tue, 12 May 2026 13:27:38 +0000</pubDate>
+      <pubDate>Tue, 12 May 2026 13:34:03 +0000</pubDate>
     </item>
     <item>
       <title>Bangun Sinergi Pengawasan, Tim Itjen Kemenhaj Temui Dirjen Urusan Haji Arab Saudi</title>
       <link>https://haji.go.id/berita/bangun-sinergi-pengawasan-tim-itjen-kemenhaj-temui-dirjen-urusan-haji-arab-saudi-1778516989630</link>
-      <description>Isi detail tidak ditemukan di halaman.</description>
+      <description>Makkah (Kemenhaj) --- Dalam rangka memastikan kesuksesan pelaksanaan ibadah haji, Inspektur Jenderal (Irjen) Kementerian Haji dan Umrah Republik Indonesia, Dendi Suryadi, melakukan pertemuan dengan Direktur Jenderal Kantor Urusan Haji, Kementerian Haji dan Umrah Arab Saudi di Jeddah.
+
+Pertemuan ini turut dihadiri Inspektur Wilayah III Kementerian Haji dan Umrah Republik Indonesia, Mulyadi Nurdin, Staf Teknis Urusan Haji KJRI Jeddah, Muhammad Ilham Effendy, serta sejumlah pejabat terkait dari kedua negara.
+
+Mulyadi Nurdin mengatakan bahwa pertemuan berlangsung dalam suasana akrab, konstruktif, dan penuh kekeluargaan.
+
+"Pertemuan ini berlangsung atas permintaan dari Inspektur Jenderal Kemenhaj RI Dendi Suryadi, sebagai upaya menjalin komunikasi dan koordinasi terkait penyelenggaraan ibadah haji tahun 2026," ujar Mulyadi Nurdin, Senin (11/5/2026).
+
+Ia menambahkan bahwa Abdullah Sehri merupakan pejabat pimpinan tinggi yang berwenang mengkoordinir seluruh kantor haji di lingkungan Kementerian Haji dan Umrah dalam Kerajaan Arab Saudi.
+
+"Pertemuan tersebut sangat penting dan merupakan langkah konstruktif antar kedua negara, dalam rangka mendukung kesuksesan penyelenggaraan ibadah haji," ujar Mulyadi Nurdin.
+
+Alumni Lemhannas RI itu menjelaskan bahwa dalam pertemuan tersebut kedua pihak membahas isu terkini terkait persiapan pelaksanaan haji dan upaya mitigasi berbagai resiko dalam memberikan layanan bagi jemaah haji Indonesia.
+
+"Kolaborasi antar kedua negara sangat penting, karena kita beroperasi di negara orang lain, kita sangat membutuhkan dukungan dari pihak Arab Saudi, karena semua layanan berada di dalam negeri mereka," ujar Alumni Universitas Al-Azhar Mesir tersebut.
+
+Ia menambahkan pihak Kementerian Haji dan Umrah Arab Saudi memiliki kewenangan luas dalam penyelenggaraan haji, sehingga pihaknya merasa perlu menjalin hubungan dan komunikasi efektif dengan mereka.
+
+"Kita saling menghormati kedaulatan masing-masing negara, dimana secara teritorial kita terdapat keterbatasan, dalam hal ini kita perlu kolaborasi dengan Pemerintah Kerajaan Arab Saudi," tambahnya.
+
+Mulyadi Nurdin menambahkan, secara regulasi Inspektorat Jenderal Kementerian Haji dan Umrah Republik Indonesia memiliki kewenangan untuk melakukan pengawasan penyelenggaraan ibadah haji, tetapi karena kegiatannya berlangsung di negara Arab Saudi, diperlukan dukungan dari pihak yang berwenang di Arab Saudi.
+
+"Dengan adanya komunikasi dan silaturahmi ini, harapannya bisa saling mendukung dalam memberikan layanan terbaik kepada jemaah haji Indonesia," pungkasnya.</description>
       <guid isPermaLink="true">https://haji.go.id/berita/bangun-sinergi-pengawasan-tim-itjen-kemenhaj-temui-dirjen-urusan-haji-arab-saudi-1778516989630</guid>
       <enclosure url="https://haji.go.id/uploads/general/7c7de39d-9766-49a9-8ac8-3199860601d6-1778516989623.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Tue, 12 May 2026 13:27:38 +0000</pubDate>
+      <pubDate>Tue, 12 May 2026 13:34:03 +0000</pubDate>
     </item>
     <item>
       <title>Menhaj Lepas Musrif Diny ke Tanah Suci, Perkuat Sukses Ritual Haji Indonesia</title>
       <link>https://haji.go.id/berita/menhaj-lepas-musrif-diny-ke-tanah-suci-perkuat-sukses-ritual-haji-indonesia-1778554516297</link>
-      <description>Isi detail tidak ditemukan di halaman.</description>
+      <description>Tangerang (Kemenhaj) — Menteri Haji dan Umrah Republik Indonesia, Moch. Irfan Yusuf, melepas keberangkatan Musrif Diny di Terminal 3 Bandara Internasional Soekarno-Hatta, Selasa (12/5/2026). Keberangkatan ini menjadi bagian dari penguatan layanan bimbingan ibadah bagi jemaah haji Indonesia pada penyelenggaraan ibadah haji 1447 H/2026 M.
+
+Dalam arahannya, Menhaj menegaskan bahwa Musrif Diny memiliki peran strategis sebagai konsultan ibadah. Mereka hadir untuk memastikan jemaah memperoleh pendampingan manasik secara benar, sahih, dan menenangkan selama menjalankan rangkaian ibadah haji di Tanah Suci.
+
+“Musrif Diny bukan sekadar pendamping ibadah, tetapi penjaga kualitas manasik jemaah. Mereka memiliki tugas mulia untuk memastikan ibadah haji dilaksanakan secara sahih, tertib, dan tetap memberi kemudahan bagi jemaah sesuai prinsip syariat,” ujar Menhaj.
+
+Menurut Menhaj, kehadiran Musrif Diny menjadi penguat pilar pertama dalam konsep Tri Sukses Haji, yaitu sukses ritual. Dua pilar lainnya adalah sukses ekosistem ekonomi haji serta sukses peradaban dan keadaban. Karena itu, Musrif Diny diharapkan tidak hanya memahami aspek teknis manasik, tetapi juga mampu menghadirkan bimbingan yang mencerahkan, menenteramkan, dan memperkuat kesadaran spiritual jemaah.
+
+“Dalam Tri Sukses Haji, Musrif Diny berada di garda penting untuk memastikan sukses ritual. Mereka bertugas menjaga kesucian ibadah, membimbing manasik secara sahih, serta memastikan jemaah memahami kemudahan-kemudahan syariat tanpa kehilangan makna spiritual haji,” katanya.
+
+Menhaj juga menekankan pentingnya penguatan pemahaman fiqh taisir atau fikih kemudahan dalam layanan bimbingan ibadah. Hal ini menjadi sangat penting mengingat kondisi jemaah haji Indonesia yang beragam, termasuk jemaah lanjut usia, jemaah dengan keterbatasan fisik, serta jemaah yang menghadapi kondisi darurat di lapangan.
+
+“Jemaah kita tidak semuanya berada dalam kondisi fisik yang sama. Ada lansia, ada yang memiliki keterbatasan kesehatan, dan ada situasi lapangan yang membutuhkan keputusan cepat. Di sinilah Musrif Diny harus hadir dengan pemahaman fikih yang kokoh, tetapi tetap adaptif dan memberi solusi,” tegasnya.
+
+Sejumlah skema layanan ibadah seperti Safari Wukuf Khusus, Murur di Muzdalifah, dan Tanazul di Mina, lanjut Menhaj, memerlukan pendampingan yang kuat dari para pembimbing ibadah. Skema tersebut harus dijelaskan kepada jemaah secara tepat agar tidak menimbulkan keraguan dalam pelaksanaan ibadah.
+
+“Safari Wukuf, Murur, maupun Tanazul bukan sekadar pengaturan teknis. Di dalamnya ada landasan fikih yang harus dipahami dan disampaikan dengan baik kepada jemaah. Musrif Diny harus menjadi rujukan yang menenteramkan,” ujarnya.
+
+Menhaj berpesan agar para Musrif Diny menjaga integritas, kesabaran, dan keikhlasan dalam menjalankan tugas. Mereka diminta hadir dekat dengan jemaah, menjawab persoalan ibadah dengan ilmu, serta menjadi bagian dari ikhtiar besar pemerintah dalam menghadirkan layanan haji yang semakin ramah, profesional, dan berorientasi pada kemaslahatan jemaah.
+
+“Kami berharap para Musrif Diny menjadi penguat layanan ibadah di Tanah Suci. Bimbinglah jemaah dengan ilmu, layani dengan hati, dan jadikan setiap pendampingan sebagai bagian dari pengabdian kepada umat,” tandas Menhaj.</description>
       <guid isPermaLink="true">https://haji.go.id/berita/menhaj-lepas-musrif-diny-ke-tanah-suci-perkuat-sukses-ritual-haji-indonesia-1778554516297</guid>
       <enclosure url="https://haji.go.id/uploads/general/2f206f1a-d4b0-48d9-b17c-1dbbabcc39fc-1778571253077.jpeg" length="0" type="image/jpeg"/>
-      <pubDate>Tue, 12 May 2026 13:27:38 +0000</pubDate>
+      <pubDate>Tue, 12 May 2026 13:34:03 +0000</pubDate>
     </item>
     <item>
       <title>Wajah Baru Layanan Konsumsi Haji: Digital, Bergizi, dan Terukur</title>
       <link>https://haji.go.id/berita/wajah-baru-layanan-konsumsi-haji-digital-bergizi-dan-terukur-1778568100920</link>
-      <description>Isi detail tidak ditemukan di halaman.</description>
+      <description>Makkah (Kemenhaj) - Kementerian Haji dan Umrah RI melalui Petugas Penyelenggara Ibadah Haji (PPIH) Arab Saudi terus melakukan transformasi besar dalam pelayanan jemaah haji tahun 1447 H/2026 M.
+
+Salah satu sektor krusial yang mengalami pembaruan masif adalah layanan konsumsi yang kini bertumpu pada teknologi digital dan peningkatan standar gizi. Inovasi ini dirancang khusus untuk memastikan kebugaran ratusan ribu jemaah tetap prima menjelang puncak ibadah di Arafah, Muzdalifah, dan Mina (Armuzna).
+
+Digitalisasi Pantau 1,19 Juta Boks Makanan
+
+Perbedaan paling mencolok pada penyelenggaraan tahun ini adalah terintegrasinya seluruh ekosistem katering ke dalam sistem digital.
+
+Pengelolaan data konsumsi mulai dari pencatatan distribusi, pemantauan jumlah porsi, hingga verifikasi layanan kini berjalan secara seketika (real-time). Sistem cerdas ini sangat membantu percepatan koordinasi dan penanganan kendala logistik di lapangan secara presisi.
+
+"Pada tahun ini pengelolaan data konsumsi mulai terintegrasi secara digital, mulai dari pencatatan distribusi, monitoring jumlah porsi, hingga verifikasi layanan," jelas Kepala Bidang Konsumsi PPIH Arab Saudi, Indri Hapsari, kepada Tim Media Center Haji (MCH), di Makkah, Senin (11/5/2026).
+
+Kehadiran teknologi ini menjadi sangat vital mengingat PPIH harus mengelola distribusi dari 51 dapur penyedia menuju 177 hotel yang dihuni 527 kloter jemaah di Makkah.
+
+Pengawasan ketat yang dilakukan oleh PPIH terbukti membuahkan hasil yang sangat terkendali. Hingga saat ini, sistem mencatat lebih dari 1.193.534 boks makanan telah sukses didistribusikan ke tangan jemaah tanpa kendala berarti.
+
+Selain modernisasi sistem, kualitas isi piring jemaah juga mengalami perbaikan yang signifikan.
+
+Penyusunan menu tahun ini dilakukan dengan perhitungan matang yang memperhatikan keseimbangan gizi dan penyesuaian cita rasa khas Nusantara. Variasi lauk-pauk sengaja diperkaya agar jemaah tidak mudah merasa jenuh dan tetap memiliki selera makan yang tinggi.
+
+Langkah ekstra juga diambil pemerintah dengan menyuntikkan tambahan nutrisi pelengkap di luar makanan utama harian. Setiap jemaah kini secara rutin mendapatkan tambahan susu, buah-buahan segar, dan air mineral.
+
+"Penyusunan menu dilakukan dengan memperhatikan keseimbangan gizi, variasi lauk, dan penyesuaian selera jemaah haji Indonesia," papar Indri menambahkan.
+
+Fokus pelayanan konsumsi saat ini juga mulai diarahkan pada persiapan krusial di fase puncak haji.
+
+Setibanya jemaah di Arafah nanti, mereka akan langsung disambut dengan tiga botol air mineral sebagai minuman pembuka.
+
+Selama menjalani wukuf di Arafah pada 8 hingga 9 Dzulhijjah, jemaah akan mendapatkan jaminan maksimal lima kali makan penuh.
+
+Sebelum pergerakan malam menuju Muzdalifah, sebuah paket kelengkapan konsumsi tambahan juga akan didistribusikan sebagai bekal energi jemaah.
+
+Sesampainya di Mina untuk melontar jumrah, layanan logistik kembali dimaksimalkan. Mulai tanggal 10 hingga 13 Dzulhijjah, jemaah akan diberikan suplai makanan maksimal sebanyak sepuluh kali agar kondisi fisik mereka tetap terjaga dan optimal.</description>
       <guid isPermaLink="true">https://haji.go.id/berita/wajah-baru-layanan-konsumsi-haji-digital-bergizi-dan-terukur-1778568100920</guid>
       <enclosure url="https://haji.go.id/uploads/general/f939c47d-7bbd-42c3-88e9-621871490be5-1778568100913.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Tue, 12 May 2026 13:27:38 +0000</pubDate>
+      <pubDate>Tue, 12 May 2026 13:34:03 +0000</pubDate>
     </item>
   </channel>
 </rss>
