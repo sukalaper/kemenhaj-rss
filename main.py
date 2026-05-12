@@ -7,7 +7,9 @@ import time
 def scrape_kemenhaj():
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
-        context = browser.new_context(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36")
+        context = browser.new_context(
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        )
         page = context.new_page()
         
         url = "https://haji.go.id/berita"
@@ -46,10 +48,11 @@ def scrape_kemenhaj():
                 print(f"Mengambil konten utuh: {title_text}")
                 detail_page = context.new_page()
                 full_html_content = ""
+                
                 try:
                     detail_page.goto(full_link, wait_until="domcontentloaded", timeout=30000)
                     
-                    detail_page.wait_for_selector(".news-detail-content, .field--name-body", timeout=5000)
+                    detail_page.wait_for_selector(".news-detail-content, .field--name-body, article", timeout=10000)
                     
                     content_element = detail_page.query_selector(".news-detail-content") or \
                                       detail_page.query_selector(".field--name-body") or \
@@ -60,6 +63,7 @@ def scrape_kemenhaj():
                     else:
                         paragraphs = detail_page.query_selector_all("p")
                         full_html_content = "".join([f"<p>{p.inner_text()}</p>" for p in paragraphs if len(p.inner_text()) > 50])
+                        
                 except Exception as e:
                     print(f"Gagal ambil detail {title_text}: {e}")
                     full_html_content = "<p>Gagal memuat detail berita utuh.</p>"
@@ -76,11 +80,12 @@ def scrape_kemenhaj():
         browser.close()
         return articles
 
+# --- Proses Generate RSS ---
+
 data_berita = scrape_kemenhaj()
 
 if data_berita:
     fg = FeedGenerator()
-    fg.load_extension('content')
     
     fg.title("Kemenhaj RI News Feed")
     fg.link(href="https://haji.go.id/berita", rel='alternate')
@@ -95,10 +100,7 @@ if data_berita:
         entry.link(href=item['link'])
         entry.guid(item['link'], permalink=True)
         
-        entry.content(item['content'], type='CDATA')
-        
-        soup_clear = BeautifulSoup(item['content'], "html.parser")
-        entry.description(soup_clear.get_text(separator="\n")[:300] + "...")
+        entry.description(item['content'])
         
         if item['image']:
             entry.enclosure(url=item['image'], length='0', type='image/jpeg')
@@ -109,8 +111,8 @@ if data_berita:
         rss_feed = fg.rss_str(pretty=True)
         with open('output.xml', 'wb') as f:
             f.write(rss_feed)
-        print(f"\nSelesai der! {len(data_berita)} berita sudah lebih rapi di output.xml.")
+        print(f"\nSelesai der! {len(data_berita)} berita sudah masuk ke output.xml dengan format rapi.")
     except Exception as e:
-        print(f"Gagal nulis file: {e}")
+        print(f"Gagal menulis file: {e}")
 else:
     print("Gak ada berita yang bisa diambil.")
