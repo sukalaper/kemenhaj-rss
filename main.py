@@ -6,19 +6,21 @@ import time
 
 def scrape_kemenhaj():
     with sync_playwright() as p:
+        # Launch browser
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
         
         url = "https://haji.go.id/berita"
         print(f"Membuka {url}...")
         
-        page.goto(url, wait_until="networkidle")
-        
         try:
+            # Go to URL and wait for the content to load
+            page.goto(url, wait_until="networkidle")
+            # Tunggu selector spesifik card berita muncul
             page.wait_for_selector(".news-card", timeout=20000)
-            time.sleep(2)
+            time.sleep(2) # Kasih nafas dikit buat render sempurna
         except Exception as e:
-            print("Waduh, beritanya gak muncul-muncul lewat browser sekalipun.")
+            print(f"Waduh, ada masalah pas loading: {e}")
             browser.close()
             return []
 
@@ -33,19 +35,28 @@ def scrape_kemenhaj():
             title_el = card.find('h3', class_='news-card-title')
             link_el = card.find('a', class_='news-card-title-link')
             excerpt_el = card.find('p', class_='news-card-excerpt')
-            date_el = card.find('span', class_='news-card-date')
             img_el = card.find('img')
 
             if title_el and link_el:
                 link = link_el['href']
+                # Pastiin link berita absolut
+                full_link = f"https://haji.go.id{link}" if link.startswith('/') else link
+                
+                # Pastiin link gambar absolut
+                img_url = None
+                if img_el and img_el.get('src'):
+                    src = img_el['src']
+                    img_url = f"https://haji.go.id{src}" if src.startswith('/') else src
+
                 articles.append({
                     'title': title_el.get_text(strip=True),
-                    'link': f"https://haji.go.id{link}" if link.startswith('/') else link,
+                    'link': full_link,
                     'excerpt': excerpt_el.get_text(strip=True) if excerpt_el else "",
-                    'date': date_el.get_text(strip=True) if date_el else "",
-                    'image': img_el['src'] if img_el else None
+                    'image': img_url
                 })
         return articles
+
+# --- Eksekusi ---
 
 data_berita = scrape_kemenhaj()
 
@@ -62,13 +73,22 @@ if data_berita:
         entry.link(href=item['link'])
         entry.description(item['excerpt'])
         
+        # Tambahin gambar sebagai enclosure kalau ada
         if item['image']:
-            entry.enclosure(url=item['image'], length=0, type='image/jpeg')
+            # Kita set length=0 karena kita gak tau size filenya secara dinamis
+            entry.enclosure(url=item['image'], length='0', type='image/jpeg')
         
-        now = datetime.now(timezone.utc)
-        entry.pubDate(now)
+        # Set pubDate ke waktu sekarang (karena scraping biasanya buat berita terbaru)
+        entry.pubDate(datetime.now(timezone.utc))
 
-    with open('output.xml', 'wb') as f:
-        f.write(fg.rss_str(pretty=True))
-    
-    print(f"Selesai! {len(data_berita)} berita berhasil masuk.")
+    # Proses simpan file
+    try:
+        # Gunakan fg.rss_str() untuk dapetin full XML content
+        rss_feed = fg.rss_str(pretty=True)
+        with open('output.xml', 'wb') as f:
+            f.write(rss_feed)
+        print(f"Selesai! {len(data_berita)} berita berhasil masuk ke output.xml.")
+    except Exception as e:
+        print(f"Gagal pas mau nulis file: {e}")
+else:
+    print("Gak ada data berita yang berhasil diambil der.")
